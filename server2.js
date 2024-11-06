@@ -14,6 +14,11 @@ const logger = (req, res, next) => {
   next();
 };
 
+const jsonMiddleware = (req, res, next) => {
+  res.setHeader('Content-Type', 'appliction/json');
+  next();
+};
+
 const server = createServer((req, res) => {
   logger(req, res, () => {
     if (req.url === '/api/users' && req.method === 'GET') {
