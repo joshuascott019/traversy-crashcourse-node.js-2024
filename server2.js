@@ -19,6 +19,12 @@ const jsonMiddleware = (req, res, next) => {
   next();
 };
 
+// Route handler for GET /api/users
+const getUsersHandler = (req, res) => {
+  res.write(JSON.stringify(users));
+  res.end();
+};
+
 const server = createServer((req, res) => {
   logger(req, res, () => {
     if (req.url === '/api/users' && req.method === 'GET') {
